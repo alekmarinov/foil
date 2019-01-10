@@ -1,0 +1,9 @@
+example=Example("paralell");
+
+example:add("common_point", {1,2}, true);
+example:add("common_point", {1,3}, true);
+example:add("common_point", {2,3}, false);
+
+example:add("paralell", {2,3}, true);
+example:add("paralell", {1,2}, false);
+example:add("paralell", {1,3}, false);

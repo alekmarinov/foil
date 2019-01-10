@@ -1,0 +1,40 @@
+example=Example("path");
+
+example:add("edge", {1, 2}, true);
+example:add("edge", {1, 3}, true);
+example:add("edge", {3, 6}, true);
+example:add("edge", {4, 2}, true);
+example:add("edge", {4, 6}, true);
+example:add("edge", {6, 5}, true);
+
+example:add("path", {1, 2}, true);
+example:add("path", {1, 3}, true);
+example:add("path", {1, 6}, true);
+example:add("path", {1, 5}, true);
+example:add("path", {3, 6}, true);
+example:add("path", {3, 5}, true);
+example:add("path", {4, 2}, true);
+example:add("path", {4, 6}, true);
+example:add("path", {4, 5}, true);
+example:add("path", {6, 5}, true);
+
+example:add("path", {1, 4}, false);
+example:add("path", {2, 1}, false);
+example:add("path", {2, 3}, false);
+example:add("path", {2, 4}, false);
+example:add("path", {2, 5}, false);
+example:add("path", {2, 6}, false);
+example:add("path", {3, 1}, false);
+example:add("path", {3, 2}, false);
+example:add("path", {3, 4}, false);
+example:add("path", {4, 1}, false);
+example:add("path", {4, 3}, false);
+example:add("path", {5, 1}, false);
+example:add("path", {5, 2}, false);
+example:add("path", {5, 3}, false);
+example:add("path", {5, 4}, false);
+example:add("path", {5, 6}, false);
+example:add("path", {6, 1}, false);
+example:add("path", {6, 2}, false);
+example:add("path", {6, 3}, false);
+example:add("path", {6, 4}, false);

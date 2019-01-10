@@ -1,0 +1,58 @@
+				FOIL Algorithm
+ 
+Current implementation is written to Lua interpreter (www.lua.org) in object oriented way.
+
+Terminology:
+Clonable::= Class implementing clone method
+Rule::= Predicate(X1, ..Xn):- C1(Xj...Xk), ..Cr(Xj...Xk).
+Constraint::=Ci(Xj...Xk)
+Example::=Set of arrays of simple values (number or string)
+
+				Main Classes
+
+Clonable,	- used to construct objects (from class) and object clones
+Example,	- examples storage class
+Constraint,	- constraint storage class
+Rule, 		- rule storage class (contains [0..*] Constraint)
+Foil		- realizes Foil algorithm
+
+
+				Foil class members
+
+	process(example)
+performs the foil algorithm as described in "CN2 and FOIL.pdf"
+
+	check_rule(rule, examples, example)
+returns the positives and negatives matching examples by a given rule
+
+	check_constraints(context, constraint_no, constraints, example)
+simple prolog mechanism evaluating a sequece of constraints againt an example 
+starting with specified context:var_name->value
+
+	max_foil_gain(constraints, rule, positives, negatives, example, isFirst)
+using foil_gain returns all constraints sorted by gain
+
+	foil_gain(constraint, rule, positives, negatives, example)
+calc constraint gain=t*(math.log2(p1/(p1+n1)) - math.log2(p0/(p0+n0)))
+
+	gen_candidate_literals(rule, example)
+generates all candidate literals (constraints)
+
+				Limitations
+
+1. Avoid first constraint to be named as the rule name
+	e.g. P(X,Y):-P(X,Z).
+2. Avoid last constraint to contains unbound variables
+	e.g. P(X,Y):-A(X,Y), B(X,Z).
+3. Avoid equal operator to contains unbound variables
+	e.g. P(X,Y):-X=Z, A(Z,Y).
+4. Example values are only number or string (not allowed table values)
+	e.g. example("member", {1, {1,2,3,...}}); - array of two values, [1]-number, [2]-array (lua table)
+
+				TODO
+
+1. Accepting tables in the examples 
+2. Using complex examples, so we can set:
+	example("number", "1")
+	example("number", "Number(X+1):-Number(X)")
+	example("number", "Number(-X+1):-Number(X)")

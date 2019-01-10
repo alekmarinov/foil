@@ -1,0 +1,21 @@
+example=Example("vnuchka");
+
+example:add("vnuchka", {"Viktor","Katerina"}, true);
+example:add("vnuchka", {"Nikolai","Katerina"}, false);
+example:add("vnuchka", {"Ivan","Katerina"}, false);
+example:add("vnuchka", {"Nikolai","Viktor"}, false);
+example:add("vnuchka", {"Viktor","Nikolai"}, false);
+
+example:add("zhena", {"Katerina"}, true);
+example:add("zhena", {"Nikolai"}, false);
+example:add("zhena", {"Viktor"}, false);
+example:add("zhena", {"Ivan"}, false);
+
+example:add("bashta", {"Nikolai", "Viktor"}, true);
+example:add("bashta", {"Viktor", "Nikolai"}, false);
+
+example:add("bashta", {"Katerina","Nikolai"}, true);
+example:add("bashta", {"Nikolai", "Katerina"}, false);
+
+example:add("bashta", {"Ivan","Nikolai"}, true);
+example:add("bashta", {"Nikolai","Ivan"}, false);
